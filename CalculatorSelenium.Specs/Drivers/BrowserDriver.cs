@@ -21,7 +21,7 @@ namespace CalculatorSelenium.Specs.Drivers
         {
             var firefoxDriverService = FirefoxDriverService.CreateDefaultService();
             var firefoxOptions = new FirefoxOptions();
-            var firefoxDriver = new FirefoxDriver(firefoxDriverService, firefoxOptions);
+            var firefoxDriver = new FirefoxDriver(firefoxDriverService, firefoxOptions){Url = "http://localhost:58909"};
 
             return firefoxDriver;
         }
