@@ -25,7 +25,7 @@ jobs:
       run: dotnet build --no-restore
     - name:  Install Firefox
       run:   |
-              chmod +x ./scripts/InstallFirefox.sh
-                          ./scripts/InstallFirefox.sh 
+              chmod +x ./scripts/InstallChrome.sh
+                          ./scripts/InstallChrome.sh 
     - name: Test
       run: dotnet test --no-build --verbosity normal
