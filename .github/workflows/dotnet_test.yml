@@ -15,16 +15,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name:  Install Firefox
+      run:   |
+              chmod +x ./scripts/InstallFirefox.sh
+                          ./scripts/InstallFirefox.sh 
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
       run: dotnet restore
-    - name:  Install Firefox
-      run:   |
-              chmod +x ./scripts/InstallFirefox.sh
-                          ./scripts/InstallFirefox.sh 
     - name: Build
       run: dotnet build --no-restore
     - name: Test
