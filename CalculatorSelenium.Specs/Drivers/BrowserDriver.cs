@@ -21,7 +21,10 @@ namespace CalculatorSelenium.Specs.Drivers
         {
             var firefoxDriverService = FirefoxDriverService.CreateDefaultService();
             var firefoxOptions = new FirefoxOptions();
-            var firefoxDriver = new FirefoxDriver(firefoxDriverService, firefoxOptions){Url = "http://localhost:58909"};
+            firefoxOptions.AddArguments("--headless");
+            firefoxOptions.AddArguments("--no-sandbox");
+            firefoxOptions.AddArgument("--disable-dev-shm-usage");
+            var firefoxDriver = new FirefoxDriver(firefoxDriverService, firefoxOptions);
 
             return firefoxDriver;
         }

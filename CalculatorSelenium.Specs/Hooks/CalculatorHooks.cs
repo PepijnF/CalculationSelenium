@@ -1,3 +1,4 @@
+using BoDi;
 using CalculatorSelenium.Specs.Drivers;
 using CalculatorSelenium.Specs.PageObjects;
 using TechTalk.SpecFlow;
@@ -15,6 +16,17 @@ namespace CalculatorSelenium.Specs.Hooks
         {
             var calculatorPageObject = new CalculatorPageObject(browserDriver.Current);
             calculatorPageObject.EnsureCalculatorIsOpenAndReset();
+        }
+        
+        [Binding]
+        public class SharedBrowserHooks
+        {
+            [BeforeTestRun]
+            public static void BeforeTestRun(ObjectContainer testThreadContainer)
+            {
+                //Initialize a shared BrowserDriver in the global container
+                testThreadContainer.BaseContainer.Resolve<BrowserDriver>();
+            }
         }
     }
 }
